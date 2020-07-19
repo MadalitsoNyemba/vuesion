@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 import VueCompositionApi from '@vue/composition-api';
 import { checkA11y } from '@storybook/addon-a11y';
 import { setDefaults, withInfo } from 'storybook-addon-vue-info';
+import { action } from '@storybook/addon-actions';
 import '@storybook/addon-console';
 import '../../src/assets/_design-system.scss';
 import '../../src/assets/designSystem/reset.scss';
@@ -24,6 +25,21 @@ Vue.use(Vuex);
 Vue.use(VueI18n);
 Vue.use(VueRouter);
 Vue.use(VueCompositionApi);
+
+Vue.component('nuxt-link', {
+  props: ['to'],
+  methods: {
+    log() {
+      action('link target')(this.to);
+    },
+  },
+  template: '<a href="#" @click.prevent="log()"><slot>NuxtLink</slot></a>',
+});
+Vue.mixin({
+  created() {
+    this.localePath = (path) => path;
+  },
+});
 
 const req = require.context('../../src', true, /.stories.ts$/);
 

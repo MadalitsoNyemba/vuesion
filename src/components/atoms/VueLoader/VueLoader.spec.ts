@@ -10,14 +10,14 @@ describe('VueLoader.vue', () => {
       localVue,
     });
 
-    expect(wrapper.findAll(`.loader`)).toHaveLength(1);
+    expect(wrapper.findAll(`.vueLoader`)).toHaveLength(1);
   });
 
   test('renders medium loader', () => {
     const wrapper = mount(VueLoader, {
       localVue,
       propsData: {
-        medium: true,
+        size: 'md',
       },
     });
 
@@ -28,7 +28,7 @@ describe('VueLoader.vue', () => {
     const wrapper = mount(VueLoader, {
       localVue,
       propsData: {
-        large: true,
+        size: 'lg',
       },
     });
 

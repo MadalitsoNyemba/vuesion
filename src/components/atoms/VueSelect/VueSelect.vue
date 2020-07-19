@@ -1,99 +1,58 @@
 <template>
   <ValidationProvider v-slot="{ invalid }" ref="validator" :vid="id" :name="name" :rules="validation">
-    <div :class="[...cssClasses, invalid ? $style.error : '']">
+    <div
+      :class="[
+        $style.vueSelect,
+        multiSelect && $style.multiSelect,
+        disabled && $style.disabled,
+        invalid && $style.error,
+      ]"
+    >
       <select
         :id="id"
-        :title="placeholder"
-        :multiple="multiple"
+        :title="label"
+        :multiple="multiSelect"
         :required="required"
         :disabled="disabled"
-        :autocomplete="autocomplete"
         v-bind="$attrs"
         v-on="{
           ...$listeners,
           input: onInput,
         }"
       >
-        <option v-for="(option, idx) in selectOptions" :key="idx" :value="option.value" :selected="isSelected(option)">
+        <option v-for="(option, idx) in items" :key="idx" :value="option.value" :selected="isSelected(option)">
           {{ option.label }}
         </option>
       </select>
 
-      <i v-if="!multiple" :class="$style.icon" />
+      <i v-if="!multiSelect" :class="$style.icon" />
       <span :class="$style.bar" />
-      <label :for="id">{{ placeholder }}<sup v-if="required">*</sup></label>
+      <label :for="id">{{ label }}<sup v-if="required">*</sup></label>
     </div>
   </ValidationProvider>
 </template>
 
 <script lang="ts">
+import { defineComponent, ref } from '@vue/composition-api';
 import { ValidationProvider } from 'vee-validate';
-import { IAutocompleteOption } from '../../organisms/VueAutocomplete/IAutocompleteOption';
+import { inputControlProps, selectControlProps } from '@/components/props';
+import { IOption } from '@/components/IOption';
 
-export interface IVueSelectOption {
-  label: string;
-  value: string;
-}
-
-export default {
+export default defineComponent({
   name: 'VueSelect',
   components: {
     ValidationProvider,
   },
   inheritAttrs: false,
   props: {
-    name: { type: String, required: true },
-    id: { type: String, required: true },
-    options: { type: Array, required: true },
-    value: { type: [String, Number], default: '' },
-    multiple: { type: Boolean, default: false },
-    required: { type: Boolean, default: false },
-    disabled: { type: Boolean, default: false },
-    validation: { type: [String, Object], default: null },
-    autocomplete: { type: String, default: 'off' },
-    placeholder: { type: String, default: '' },
+    ...inputControlProps(),
+    ...selectControlProps(),
   },
-  data(): { selectOptions: IAutocompleteOption[] } {
-    return {
-      selectOptions: [],
-    };
-  },
-  computed: {
-    cssClasses() {
-      const classes = [this.$style.vueSelect];
-
-      if (this.multiple) {
-        classes.push(this.$style.multiple);
-      }
-
-      if (this.disabled) {
-        classes.push(this.$style.disabled);
-      }
-
-      if (this.value.length > 0) {
-        classes.push(this.$style.hasValue);
-      }
-
-      return classes;
-    },
-    currentValueAsArray(): string[] {
-      return this.value.split('|');
-    },
-  },
-  watch: {
-    options: {
-      immediate: true,
-      handler(options: IAutocompleteOption[]) {
-        this.selectOptions = [...options];
-      },
-    },
-  },
-  methods: {
-    isSelected(option: IVueSelectOption): boolean {
-      return this.currentValueAsArray.includes(option.value);
-    },
-    onInput(e: Event) {
-      const selected: IVueSelectOption[] = [];
+  setup(props, { emit }) {
+    const currentValueAsArray = ref<string[]>(props.value ? props.value.toString().split('|') : []);
+    const isSelected = (option: IOption) => currentValueAsArray.value.includes(option.value);
+    const onInput = (e: Event) => {
+      const selected: IOption[] = [];
       const target: HTMLSelectElement = e.target as HTMLSelectElement;
       const length: number = target.options.length;
 
@@ -104,10 +63,16 @@ export default {
         }
       }
 
-      this.$emit('input', selected.map((option: IVueSelectOption) => option.value).join('|'));
-    },
+      emit('input', selected.map((option) => option.value).join('|'));
+    };
+
+    return {
+      currentValueAsArray,
+      isSelected,
+      onInput,
+    };
   },
-};
+});
 </script>
 
 <style lang="scss" module>
