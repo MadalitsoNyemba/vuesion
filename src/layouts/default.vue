@@ -113,7 +113,7 @@
 
 <script lang="ts">
 import { mapActions, mapGetters } from 'vuex';
-import '@/assets/designSystem/global.scss';
+import '@/assets/global.scss';
 import VueNavBar from '@/components/organisms/VueNavBar/VueNavBar.vue';
 import VueFooter from '@/components/organisms/VueFooter/VueFooter.vue';
 import VueNotificationStack from '@/components/molecules/VueNotificationStack/VueNotificationStack.vue';
@@ -222,8 +222,8 @@ export default {
 
 <style lang="scss" module>
 @import '~@/assets/design-system';
-@import '~@/assets/designSystem/reset';
-@import '~@/assets/designSystem/typo';
+@import '~@/assets/reset';
+@import '~@/assets/typo';
 
 .app {
   min-height: 100vh;

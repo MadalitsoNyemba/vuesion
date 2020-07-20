@@ -164,7 +164,7 @@ import VueCheckbox from '@/components/atoms/VueCheckbox/VueCheckbox.vue';
 import VueGridRow from '@/components/organisms/VueGrid/VueGridRow/VueGridRow.vue';
 import VueGridColumn from '@/components/organisms/VueGrid/VueGridColumn/VueGridColumn.vue';
 import VueButton from '@/components/atoms/VueButton/VueButton.vue';
-import { addNotification, INotification } from '@/components/molecules/VueNotificationStack/utils';
+import { addNotification } from '@/components/molecules/VueNotificationStack/utils';
 import VueHeadline from '@/components/atoms/VueHeadline/VueHeadline.vue';
 
 export default {
@@ -221,7 +221,7 @@ export default {
             addNotification({
               title: 'Data has been saved!',
               text: 'Have a look at the console!',
-            } as INotification);
+            });
           }, 1000);
         },
       );

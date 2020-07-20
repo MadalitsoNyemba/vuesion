@@ -35,8 +35,8 @@
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
 import { ValidationProvider } from 'vee-validate';
-import { inputControlProps, selectControlProps } from '@/components/props';
-import { IOption } from '@/components/IOption';
+import { InputControlProps, SelectControlProps } from '@/components/props';
+import { IItem } from '@/components/IItem';
 
 export default defineComponent({
   name: 'VueSelect',
@@ -45,14 +45,14 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    ...inputControlProps(),
-    ...selectControlProps(),
+    ...InputControlProps(),
+    ...SelectControlProps(),
   },
   setup(props, { emit }) {
     const currentValueAsArray = ref<string[]>(props.value ? props.value.toString().split('|') : []);
-    const isSelected = (option: IOption) => currentValueAsArray.value.includes(option.value);
+    const isSelected = (option: IItem) => currentValueAsArray.value.includes(option.value);
     const onInput = (e: Event) => {
-      const selected: IOption[] = [];
+      const selected: IItem[] = [];
       const target: HTMLSelectElement = e.target as HTMLSelectElement;
       const length: number = target.options.length;
 

@@ -56,7 +56,7 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref, watch } from '@vue/composition-api';
 import { IAlgorithm, linear } from './algorithms';
-import { formControlProps } from '@/components/props';
+import { FormControlProps } from '@/components/props';
 import { getDomRef } from '@/composables/get-dom-ref';
 import { useEvent } from '@/composables/use-event';
 
@@ -65,7 +65,7 @@ const algorithm: IAlgorithm = linear;
 export default defineComponent({
   name: 'VueSlider',
   props: {
-    ...formControlProps(),
+    ...FormControlProps(),
     min: { type: Number, required: true },
     max: { type: Number, required: true },
     values: { type: Array, required: true },

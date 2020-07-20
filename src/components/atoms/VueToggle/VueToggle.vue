@@ -27,7 +27,7 @@
 <script lang="ts">
 import { computed, defineComponent, ref } from '@vue/composition-api';
 import { ValidationProvider } from 'vee-validate';
-import { inputControlProps } from '@/components/props';
+import { InputControlProps } from '@/components/props';
 import { getDomRef } from '@/composables/get-dom-ref';
 
 export default defineComponent({
@@ -35,7 +35,7 @@ export default defineComponent({
   components: { ValidationProvider },
   inheritAttrs: false,
   props: {
-    ...inputControlProps(),
+    ...InputControlProps(),
     checked: { type: Boolean, default: false },
   },
   setup(props, { emit }) {

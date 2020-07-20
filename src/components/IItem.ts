@@ -1,4 +1,4 @@
-export interface IOption {
+export interface IItem {
   label: string;
   value: string;
 }

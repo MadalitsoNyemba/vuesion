@@ -31,7 +31,12 @@ export interface ISelectControlProps extends IListControlProps {
   multiSelect: PropOptions;
 }
 
-export interface IVariantionProps {
+export interface IVariationProps {
   color: PropOptions;
   size: PropOptions;
+}
+
+export interface ICollapseControlProps {
+  show: PropOptions;
+  duration: PropOptions;
 }

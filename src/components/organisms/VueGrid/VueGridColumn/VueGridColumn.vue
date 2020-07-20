@@ -35,7 +35,7 @@ export default defineComponent({
     const columnTextAlign = computed(() => props.textAlign || rowTextAlign);
     const styles = computed(() => {
       return {
-        flexBasis: props.width && `${props.width}%`,
+        flexBasis: props.width ? `${props.width}%` : 'auto',
         justifyContent: columnTextAlign.value,
         textAlign: columnTextAlign.value,
         flexGrow: props.canGrow ? '1' : '0',

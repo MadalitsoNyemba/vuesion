@@ -5,22 +5,17 @@
 </template>
 
 <script lang="ts">
-import CollapseAnimation from '../../animations/CollapseAnimation/CollapseAnimation.vue';
+import { defineComponent } from '@vue/composition-api';
+import CollapseAnimation from '@/components/animations/CollapseAnimation/CollapseAnimation.vue';
+import { CollapseControlProps } from '@/components/props';
 
-export default {
+export default defineComponent({
   name: 'VueCollapse',
   components: {
     CollapseAnimation,
   },
   props: {
-    show: {
-      default: true,
-      type: Boolean,
-    },
-    duration: {
-      type: Number,
-      default: 250,
-    },
+    ...CollapseControlProps(),
   },
-};
+});
 </script>

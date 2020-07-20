@@ -11,12 +11,12 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import { listControlProps } from '@/components/props';
+import { ListControlProps } from '@/components/props';
 
 export default defineComponent({
   name: 'VueBreadcrumb',
   props: {
-    ...listControlProps(),
+    ...ListControlProps(),
   },
 });
 </script>

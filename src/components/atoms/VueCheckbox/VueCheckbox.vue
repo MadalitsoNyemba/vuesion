@@ -20,14 +20,14 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 import { ValidationProvider } from 'vee-validate';
-import { inputControlProps } from '@/components/props';
+import { InputControlProps } from '@/components/props';
 
 export default defineComponent({
   name: 'VueCheckbox',
   components: { ValidationProvider },
   inheritAttrs: false,
   props: {
-    ...inputControlProps(),
+    ...InputControlProps(),
     checked: { type: Boolean, default: false },
     radio: { type: Boolean, default: false },
   },

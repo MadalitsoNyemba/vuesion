@@ -1,20 +1,21 @@
 import { spacingValidator, variationValidator } from '@/components/utils';
-import { IOption } from '@/components/IOption';
+import { IItem } from '@/components/IItem';
 import {
+  ICollapseControlProps,
   IFormControlProps,
   IInputControlProps,
   IListControlProps,
   ISelectControlProps,
   ITextInputControlProps,
-  IVariantionProps,
+  IVariationProps,
 } from '@/components/IProps';
 
-export const formControlProps = (): IFormControlProps => ({
+export const FormControlProps = (): IFormControlProps => ({
   disabled: { type: Boolean, default: false },
 });
 
-export const inputControlProps = (): IInputControlProps => ({
-  ...formControlProps(),
+export const InputControlProps = (): IInputControlProps => ({
+  ...FormControlProps(),
   id: { type: String, required: true },
   label: { type: String, required: true },
   name: { type: String, required: true },
@@ -23,8 +24,8 @@ export const inputControlProps = (): IInputControlProps => ({
   value: { type: [String, Number, Boolean], default: null },
 });
 
-export const textInputControlProps = (): ITextInputControlProps => ({
-  ...inputControlProps(),
+export const TextInputControlProps = (): ITextInputControlProps => ({
+  ...InputControlProps(),
   placeholder: { type: String, default: null },
   autofocus: { type: Boolean, default: false },
   type: { type: String, default: 'text' },
@@ -34,16 +35,21 @@ export const textInputControlProps = (): ITextInputControlProps => ({
   autocomplete: { type: String, default: 'off' },
 });
 
-export const listControlProps = (): IListControlProps => ({
-  items: { type: Array, default: (): IOption[] => [] },
+export const ListControlProps = (): IListControlProps => ({
+  items: { type: Array, default: (): IItem[] => [] },
 });
 
-export const selectControlProps = (): ISelectControlProps => ({
-  ...listControlProps(),
+export const SelectControlProps = (): ISelectControlProps => ({
+  ...ListControlProps(),
   multiSelect: { type: Boolean, default: false },
 });
 
-export const variationProps = (color = 'default', size = 'md'): IVariantionProps => ({
+export const VariationProps = (color = 'default', size = 'md'): IVariationProps => ({
   color: { type: String, validator: variationValidator, default: color },
   size: { type: String, validator: spacingValidator, default: size },
+});
+
+export const CollapseControlProps = (show = true, duration = 250): ICollapseControlProps => ({
+  show: { type: Boolean, default: show },
+  duration: { type: Number, default: duration },
 });

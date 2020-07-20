@@ -8,12 +8,12 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import { variationProps } from '@/components/props';
+import { VariationProps } from '@/components/props';
 
 export default defineComponent({
   name: 'VueLoader',
   props: {
-    ...variationProps('default', 'sm'),
+    ...VariationProps('default', 'sm'),
   },
 });
 </script>
