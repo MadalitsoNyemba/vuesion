@@ -5,7 +5,7 @@
       <vue-icon-sort-down />
     </span>
 
-    <vue-collapse :show="show">
+    <vue-collapse :show="show" :duration="duration">
       <div :class="$style.list">
         <ul>
           <li
@@ -30,7 +30,7 @@ import { defineComponent, ref } from '@vue/composition-api';
 import { getIntInRange } from '@vuesion/utils/dist/randomGenerator';
 import VueIconSortDown from '../../atoms/icons/VueIconSortDown/VueIconSortDown.vue';
 import VueCollapse from '../VueCollapse/VueCollapse.vue';
-import { ListControlProps } from '@/components/props';
+import { AnimationProps, ListControlProps } from '@/components/props';
 import { getDomRef } from '@/composables/get-dom-ref';
 import { IItem } from '@/components/IItem';
 import { useOutsideClick } from '@/composables/use-outside-click';
@@ -40,6 +40,7 @@ export default defineComponent({
   components: { VueCollapse, VueIconSortDown },
   props: {
     ...ListControlProps(),
+    ...AnimationProps(),
   },
   setup(props, { emit }) {
     const dropdownMenu = getDomRef(null);

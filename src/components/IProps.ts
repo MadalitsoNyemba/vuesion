@@ -36,7 +36,10 @@ export interface IVariationProps {
   size: PropOptions;
 }
 
-export interface ICollapseControlProps {
-  show: PropOptions;
+export interface IAnimationProps {
   duration: PropOptions;
+}
+
+export interface ICollapseControlProps extends IAnimationProps {
+  show: PropOptions;
 }

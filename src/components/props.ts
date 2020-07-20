@@ -1,6 +1,7 @@
 import { spacingValidator, variationValidator } from '@/components/utils';
 import { IItem } from '@/components/IItem';
 import {
+  IAnimationProps,
   ICollapseControlProps,
   IFormControlProps,
   IInputControlProps,
@@ -49,7 +50,11 @@ export const VariationProps = (color = 'default', size = 'md'): IVariationProps 
   size: { type: String, validator: spacingValidator, default: size },
 });
 
-export const CollapseControlProps = (show = true, duration = 250): ICollapseControlProps => ({
-  show: { type: Boolean, default: show },
-  duration: { type: Number, default: duration },
+export const AnimationProps = (): IAnimationProps => ({
+  duration: { type: Number, default: 250 },
+});
+
+export const CollapseControlProps = (): ICollapseControlProps => ({
+  ...AnimationProps(),
+  show: { type: Boolean, default: true },
 });
