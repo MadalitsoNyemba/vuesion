@@ -40,6 +40,12 @@ export interface IAnimationProps {
   duration: PropOptions;
 }
 
-export interface ICollapseControlProps extends IAnimationProps {
+export interface IVisibilityProps {
   show: PropOptions;
 }
+
+export interface IAsyncProps {
+  loading: PropOptions;
+}
+
+export interface ICollapseControlProps extends IAnimationProps, IVisibilityProps {}

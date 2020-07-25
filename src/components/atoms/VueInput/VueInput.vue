@@ -56,7 +56,7 @@ import { ValidationProvider } from 'vee-validate';
 import { computed, defineComponent } from '@vue/composition-api';
 import { useIntersectionObserver } from '@/composables/use-intersection-observer';
 import { getDomRef } from '@/composables/get-dom-ref';
-import { TextInputControlProps } from '@/components/props';
+import { TextInputControlProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueInput',

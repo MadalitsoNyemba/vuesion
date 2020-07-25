@@ -24,7 +24,7 @@
 import { defineComponent, computed } from '@vue/composition-api';
 import VueLoader from '../VueLoader/VueLoader.vue';
 import { getDomRef } from '@/composables/get-dom-ref';
-import { FormControlProps, VariationProps } from '@/components/props';
+import { AsyncProps, FormControlProps, VariationProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueButton',
@@ -34,7 +34,7 @@ export default defineComponent({
   props: {
     ...FormControlProps(),
     ...VariationProps(),
-    loading: { type: Boolean, default: false },
+    ...AsyncProps(),
     ghost: { type: Boolean, default: false },
     block: { type: Boolean, default: false },
     as: { type: String, default: 'button' },

@@ -30,7 +30,7 @@ import { defineComponent, ref } from '@vue/composition-api';
 import { getIntInRange } from '@vuesion/utils/dist/randomGenerator';
 import VueIconSortDown from '../../atoms/icons/VueIconSortDown/VueIconSortDown.vue';
 import VueCollapse from '../VueCollapse/VueCollapse.vue';
-import { AnimationProps, ListControlProps } from '@/components/props';
+import { AnimationProps, ListControlProps } from '@/components/Props';
 import { getDomRef } from '@/composables/get-dom-ref';
 import { IItem } from '@/components/IItem';
 import { useOutsideClick } from '@/composables/use-outside-click';

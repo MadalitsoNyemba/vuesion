@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import { ListControlProps } from '@/components/props';
+import { ListControlProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueBreadcrumb',

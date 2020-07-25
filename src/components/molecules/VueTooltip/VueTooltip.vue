@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { FormControlProps } from '@/components/props';
+import { FormControlProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueTooltip',

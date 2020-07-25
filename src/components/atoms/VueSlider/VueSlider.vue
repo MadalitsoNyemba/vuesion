@@ -56,7 +56,7 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref, watch } from '@vue/composition-api';
 import { IAlgorithm, linear } from './algorithms';
-import { FormControlProps } from '@/components/props';
+import { FormControlProps } from '@/components/Props';
 import { getDomRef } from '@/composables/get-dom-ref';
 import { useEvent } from '@/composables/use-event';
 

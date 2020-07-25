@@ -1,7 +1,7 @@
 import { spacingValidator, variationValidator } from '@/components/utils';
 import { IItem } from '@/components/IItem';
 import {
-  IAnimationProps,
+  IAnimationProps, IAsyncProps,
   ICollapseControlProps,
   IFormControlProps,
   IInputControlProps,
@@ -9,6 +9,7 @@ import {
   ISelectControlProps,
   ITextInputControlProps,
   IVariationProps,
+  IVisibilityProps
 } from '@/components/IProps';
 
 export const FormControlProps = (): IFormControlProps => ({
@@ -22,7 +23,7 @@ export const InputControlProps = (): IInputControlProps => ({
   name: { type: String, required: true },
   required: { type: Boolean, default: false },
   validation: { type: [String, Object], default: null },
-  value: { type: [String, Number, Boolean], default: null },
+  value: { type: [String, Number, Boolean, Object], default: null },
 });
 
 export const TextInputControlProps = (): ITextInputControlProps => ({
@@ -54,7 +55,15 @@ export const AnimationProps = (): IAnimationProps => ({
   duration: { type: Number, default: 250 },
 });
 
+export const VisibilityProps = (show = false): IVisibilityProps => ({
+  show: { type: Boolean, default: show },
+});
+
+export const AsyncProps = (): IAsyncProps => ({
+  loading: { type: Boolean, default: false },
+});
+
 export const CollapseControlProps = (): ICollapseControlProps => ({
   ...AnimationProps(),
-  show: { type: Boolean, default: true },
+  ...VisibilityProps(true),
 });

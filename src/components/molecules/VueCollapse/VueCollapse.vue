@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 import CollapseAnimation from '@/components/animations/CollapseAnimation/CollapseAnimation.vue';
-import { CollapseControlProps } from '@/components/props';
+import { CollapseControlProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueCollapse',

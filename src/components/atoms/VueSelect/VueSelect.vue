@@ -35,7 +35,7 @@
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
 import { ValidationProvider } from 'vee-validate';
-import { InputControlProps, SelectControlProps } from '@/components/props';
+import { InputControlProps, SelectControlProps } from '@/components/Props';
 import { IItem } from '@/components/IItem';
 
 export default defineComponent({

@@ -15,11 +15,12 @@ import { useOutsideClick } from '@/composables/use-outside-click';
 import { useKeydown } from '@/composables/use-keydown';
 import { useBackdrop } from '@/composables/use-backdrop';
 import { getDomRef } from '@/composables/get-dom-ref';
+import { VisibilityProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueModal',
   props: {
-    show: { type: Boolean, default: false },
+    ...VisibilityProps(),
     backdrop: { type: Boolean, default: true },
     scrollable: { type: Boolean, default: false },
     closeOnEscape: { type: Boolean, default: true },

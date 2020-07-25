@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import { VariationProps } from '@/components/props';
+import { VariationProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueBadge',

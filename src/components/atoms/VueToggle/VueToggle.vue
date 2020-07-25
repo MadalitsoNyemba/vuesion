@@ -27,7 +27,7 @@
 <script lang="ts">
 import { computed, defineComponent, ref } from '@vue/composition-api';
 import { ValidationProvider } from 'vee-validate';
-import { InputControlProps } from '@/components/props';
+import { InputControlProps } from '@/components/Props';
 import { getDomRef } from '@/composables/get-dom-ref';
 
 export default defineComponent({

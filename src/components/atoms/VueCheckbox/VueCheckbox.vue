@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 import { ValidationProvider } from 'vee-validate';
-import { InputControlProps } from '@/components/props';
+import { InputControlProps } from '@/components/Props';
 
 export default defineComponent({
   name: 'VueCheckbox',
