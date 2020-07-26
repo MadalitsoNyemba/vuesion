@@ -26,7 +26,7 @@ export default defineComponent({
     maxNumStars: { type: Number, default: 5 },
     selectedNumStars: { type: Number, default: 0 },
   },
-  setup(props, { emit }) {
+  setup(props) {
     const stars = ref<Array<{ active: boolean }>>([]);
     const numStarDisplay = ref(0);
     const numSelectedStars = ref(0);

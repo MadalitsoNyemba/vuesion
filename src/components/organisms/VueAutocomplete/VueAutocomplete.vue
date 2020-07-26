@@ -7,8 +7,8 @@
     role="combobox"
   >
     <vue-input
-      :disabled="disabled"
       :id="id"
+      :disabled="disabled"
       :label="label"
       :name="name"
       :required="required"

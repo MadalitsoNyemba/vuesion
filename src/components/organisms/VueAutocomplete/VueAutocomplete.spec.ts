@@ -3,8 +3,6 @@ import VueLoader from '../../atoms/VueLoader/VueLoader.vue';
 import VueAutocomplete from './VueAutocomplete.vue';
 import { AutocompleteFixture } from './IAutocompleteFixture';
 import { i18n, triggerDocument } from '@/test/test-utils';
-import { render } from '@testing-library/vue';
-import VueModal from '@/components/molecules/VueModal/VueModal.vue';
 
 const localVue = createLocalVue();
 

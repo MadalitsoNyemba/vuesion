@@ -49,3 +49,13 @@ export interface IAsyncProps {
 }
 
 export interface ICollapseControlProps extends IAnimationProps, IVisibilityProps {}
+
+export interface ICalendarProps {
+  selectedDate: PropOptions;
+  today: PropOptions;
+  minDate: PropOptions;
+  maxDate: PropOptions;
+  firstDayOfWeek: PropOptions;
+  startDate: PropOptions;
+  endDate: PropOptions;
+}
